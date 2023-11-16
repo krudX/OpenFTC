@@ -1,113 +1,84 @@
-import Image from 'next/image'
+import Image from "next/image";
+import Link from "next/link";
+
+import FeatureCard from "@/components/FeatureCard";
+
+import { featureData, testimonialData } from "@/data";
+import SectionTitle from "@/components/SectionTitle";
+import AboutSection from "@/components/AboutSection";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <section className="hero my-20 text-center grid place-items-center">
+        <h1 className="hero-title font-extrabold text-4xl md:text-[52px] text-text">Landing template for startups</h1>
+        <p className="hero-desc text-text-light md:text-xl pt-4 max-w-2xl">Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.</p>
+        <div className="hero-btn-group flex items-center gap-3 pt-8 pb-20">
+          <Link href="/" className="font-medium py-3 px-8 rounded-sm text-sm md:text-base text-white bg-accent-purple">Start Free Trial</Link>
+          <Link href="/" className="font-medium py-3 px-8 rounded-sm text-sm md:text-base text-text-light bg-light-gray">Learn More</Link>
         </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <div className="video-section relative w-full aspect-video md:h-[576px] grid place-items-center">
+          <Image src="/video_thumb.png" fill priority alt="Hero Video" className="absolute"/>
+          <Image src="/icon_play.svg" height={120} width={120} priority alt="Hero Video" className="absolute" />
+        </div>
+      </section>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <section className="features my-20 text-center">
+        <SectionTitle title={"The majority our customers do not understand their workflows."} />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+        <div className="featured-grid grid grid-cols-1 md:grid-cols-3 gap-16 pt-12">
+          {
+            featureData.map(el => {
+              return (
+                <FeatureCard key={el.icon} {...el} />
+              )
+            })
+          }
+        </div>
+      </section> 
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+      <div className="separator w-full h-[1px] bg-light-gray" /> 
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <section className="about my-20">
+        <SectionTitle title={"One product, unlimited solutions"} subTitle={"Reach goals that matter"} />
+
+        <div className="about-wrapper">
+          <AboutSection title={"Keep projects on schedule"} subTitle={"More speed. Less spend"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."} list={["Duis aute irure dolor in reprehenderit", "Excepteur sint occaecat", "Amet consectetur adipiscing elit"]} image={"/illustration_1.png"} />
+          <AboutSection right={true} title={"Keep projects on schedule"} subTitle={"More speed. Less spend"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."} list={["Duis aute irure dolor in reprehenderit", "Excepteur sint occaecat", "Amet consectetur adipiscing elit"]} image={"/illustration_2.png"} />
+          <AboutSection title={"Keep projects on schedule"} subTitle={"More speed. Less spend"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."} list={["Duis aute irure dolor in reprehenderit", "Excepteur sint occaecat", "Amet consectetur adipiscing elit"]} image={"/illustration_3.png"} />
+        </div>
+      </section>
+
+      <div className="separator w-full h-[1px] bg-light-gray" /> 
+
+      <section className="testimonials my-20">
+        <SectionTitle title={"Don't take our word for it"} description={"Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare."} />
+
+        <div className="testimonial-carousel mt-20 grid md:grid-cols-3 gap-6">
+
+          {
+            testimonialData.map((el, index) => {
+              return (
+                <div className="bg-dark-gray p-6" key={index}>
+                  <div className="avatar-wrapper relative inline-block">
+                    <Image src={el.avatar} height={48} width={48} alt={el.name} className="testi-avatar" />
+                    <Image src="/icon_quotes.svg" height={18} width={24} alt={"Quotes"} className="absolute -right-3 top-0" />
+                  </div>
+
+
+                  <p className="review pt-4 text-text-light">{el.review}</p>
+
+                  <div className="separator w-full h-[1px] bg-light-gray my-6" /> 
+
+                  <h5 className="font-medium text-base">{el.name} / <span className="text-accent-purple">{el.position}</span></h5>
+                </div>
+              )
+            })
+          }
+
+        </div>
+      </section>
     </main>
   )
 }

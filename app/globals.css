@@ -3,25 +3,46 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --clr-bg: #151719;
+  --clr-text: #d9e3ea;
+  --clr-text-light: #9ba9b4;
+  --clr-accent-purple: #5d5dff;
+  --clr-accent-light-purple: #8d8dff;
+  --clr-accent-dark-purple: #4b4acf;
+  --clr-accent-mint: #c6f6d5;
+  --clr-accent-green: #36a269;
+  --clr-accent-red: #e53d3e;
+  --clr-light-gray: #33363a;
+  --clr-dark-gray: #25282c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+*,
+*::before,
+*::after,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 150ms ease-in-out;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--clr-text);
+  background-color: var(--clr-bg);
+}
+
+.page-wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.about-list > li {
+  list-style: inside url("/icon_check.svg");
+  padding: 4px 0;
 }
