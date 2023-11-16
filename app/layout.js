@@ -1,5 +1,6 @@
 import { Inter, Architects_Daughter } from "next/font/google";
 import "./globals.css";
+import "./contentGrid.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -32,7 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} ${architects_daughter.variable}`}>
-        <div className="page-wrapper">
+        <div className="content-grid">
           <Navbar />
           {children}
           <Footer />

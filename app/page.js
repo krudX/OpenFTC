@@ -9,7 +9,7 @@ import AboutSection from "@/components/AboutSection";
 
 export default function Home() {
   return (
-    <main>
+    <main className="content-grid">
       <section className="hero my-20 text-center grid place-items-center">
         <h1 className="hero-title font-extrabold text-4xl md:text-[52px] text-text">Landing template for startups</h1>
         <p className="hero-desc text-text-light md:text-xl pt-4 max-w-2xl">Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.</p>
@@ -18,7 +18,7 @@ export default function Home() {
           <Link href="/" className="font-medium py-3 px-8 rounded-sm text-sm md:text-base text-text-light bg-light-gray">Learn More</Link>
         </div>
 
-        <div className="video-section relative w-full aspect-video md:h-[576px] grid place-items-center">
+        <div className="video-section relative z-10 w-full aspect-video md:h-[576px] grid place-items-center">
           <Image src="/video_thumb.png" fill priority alt="Hero Video" className="absolute"/>
           <Image src="/icon_play.svg" height={120} width={120} priority alt="Hero Video" className="absolute" />
         </div>
