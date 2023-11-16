@@ -33,27 +33,35 @@ html {
 body {
   color: var(--clr-text);
   background-color: var(--clr-bg);
+  max-width: 100vw;
   overflow-x: hidden;
 }
 
-.page-wrapper {
+/* .page-wrapper {
   max-width: 1080px;
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
-}
+} */
 
 .about-list > li {
   list-style: inside url("/icon_check.svg");
   padding: 4px 0;
 }
 
-body::before {
+.page-wrapper::before {
   content: url("/shape_top.png");
   position: absolute;
   top: 0;
   right: 0;
-  max-width: 70vw;
+  /* width: 100vw; */
+  transform-origin: top right;
+}
+
+@media (max-width: 600px) {
+  .page-wrapper::before {
+    transform: scale(0.8);
+  }
 }
 
 .video-section::before {

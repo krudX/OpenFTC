@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} ${architects_daughter.variable}`}>
-        <div className="content-grid">
+        <div className="page-wrapper relative content-grid">
           <Navbar />
           {children}
           <Footer />
